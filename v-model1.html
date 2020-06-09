@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			
+			<input type="text" :value="message" @input="change"   />
+			<!--一旦在界面产生事件时，浏览器会生成一个event对象，该对象包含了当前事件发生改变的数据
+				函数省略参数时，会直接将event传到函数体中去
+			-->
+			{{message}}
+		</div>
+		<script>
+			const app = new Vue({
+				el:'#app',
+				data:{
+					message:'are you ok!'
+				},
+				methods:{
+					change(event){
+						this.message = event.target.value;
+					},
+				}
+			});
+		</script>
+	</body>
+</html>

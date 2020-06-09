@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js">
+			
+		</script>
+		<style type="text/css">
+			.active{
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		   <h2 v-bind:style="{fontSize:size+'px'}">
+		   	{{message}}
+		   	{{fullName}}
+		   </h2>
+		</div>
+		<script type="text/javascript">
+				const app = new Vue({
+				el:'#app',
+				data:{
+					message:'你好·',
+					size:100,
+					firstName:'wei',
+					lastName:'song'
+				},
+				computed:{				
+					fullName:function(){
+						return this.firstName + ' ' + this.lastName
+					}					
+				}
+			});
+		</script>
+	</body>
+</html>

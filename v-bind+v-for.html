@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js">
+			
+		</script>
+		<style type="text/css">
+			.active{
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			{{message}}
+			<ul style="list-style: none;">
+				<li v-for="(item,index) in books"  :class="{active:currentindex === index}" @click="btn(index)">{{item}}</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			const app = new Vue({
+				el:'#app',
+				data:{
+					message:'hello fucker!',
+					books:['时间简史','追风筝的人','人月神话','上下五千年'],
+//					isActive:true
+                    currentindex:0
+				},
+				methods:{
+					btn(index){
+						this.currentindex = index
+					}
+				}
+				
+				
+			})
+		</script>
+	</body>
+</html>

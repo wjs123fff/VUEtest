@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<cpn3></cpn3>
+			<cpn3></cpn3>
+			<cpn3></cpn3>
+		</div>
+		<template id="cpn3">
+				<div>
+				<h2>当前计数：{{counter}}</h2>
+				<button @click="incream">+</button>
+				<button @click="decream">-</button>
+				</div>
+			</template>
+		<script>
+			Vue.component('cpn3',{
+				template:'#cpn3',
+				data(){
+					return{
+						counter:0
+					}
+				},
+				methods:{
+					incream(){
+						this.counter++
+					},
+					decream(){
+						this.counter--
+					}
+				}
+			})
+			const app = new Vue({
+				el:'#app',
+				data:{
+					message:'hello world!'
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">	
+         <!--1.checkbox单选框-->
+         <input type="checkbox" name="" id="" value="" v-model="isAgree" />Agree
+         <button :disabled="!isAgree">下一步</button>
+         <hr />
+         <!--2.checkbox多选框-->
+         <!--<input type="checkbox" value="鸡肉" v-model="food" />鸡肉
+         <input type="checkbox" value="鱼肉" v-model="food" />鱼肉
+         <input type="checkbox" value="猪肉" v-model="food" />猪肉
+         <input type="checkbox" value="牛肉" v-model="food" />牛肉-->
+         <h2>你喜欢吃：{{food}}</h2>
+         <label :for="item" v-for="item in food1">
+         	<input type="checkbox" :value="item" :id="item" v-model="food"/>{{item}}
+         </label>
+		</div>
+		<script>
+			const app = new Vue({
+				
+				el:'#app',
+				data:{
+					isAgree:false,
+					food:[],
+					food1:['鸡肉','鱼肉','猪肉','牛肉']
+				},
+				methods:{
+				
+				}
+			});
+		</script>
+	</body>
+</html>

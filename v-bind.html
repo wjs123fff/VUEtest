@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<img v-bind:src="imgurl"/>
+		<img :src="imgurl"/><!--语法糖写法-->
+		</div>
+		
+		<script type="text/javascript">
+				const app = new Vue({
+				el:'#app',
+				data:{
+					message:'你好·',
+					imgurl:'http://img3.imgtn.bdimg.com/it/u=2711845001,1906882292&fm=26&gp=0.jpg'
+				}
+			});
+		</script>
+	</body>
+</html>

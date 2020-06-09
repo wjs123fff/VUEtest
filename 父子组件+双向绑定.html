@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+	</head>
+	<body>
+		<!--父组件-->
+		<div id="app">
+			<cpn :number1 = "num1" 
+				 :number2="num2"
+				 @btnum1="bnum1"
+				 @btnum2="bnum2"></cpn>
+		</div>
+		<!--子组件-->
+		<template id="cpn">
+			<div>
+				<!--v-model = v-bind+v-on-->
+			   <h2>props:{{number1}}</h2>
+			   <h2>data:{{cnumber1}}</h2>
+			 <!--  <input type="text"    v-model="cnumber1"/>-->
+			 <input type="text" :value="cnumber1" @input="inputnum1" />
+			   <h2>props:{{number2}}</h2>
+			   <h2>data:{{cnumber2}}</h2>
+			 <!--  <input type="text"   v-model="cnumber2"/>-->
+			 <input type="text" :value="cnumber2"  @input="inputnum2"/>
+			</div>
+		</template>
+		<script>
+			const app = new Vue({
+				el:'#app',
+				data:{
+					num1:1,
+					num2:0
+				},
+				methods:{
+					bnum1(value){
+						this.num1 = parseInt(value);
+					},
+					bnum2(value){
+						this.num2 = parseInt(value);
+					}
+				},
+				components:{
+				        cpn:{             
+				        	template:'#cpn',
+				        	props:{
+				        		number1:Number,
+				        		number2:Number
+				        },
+				        data(){
+				        	return{
+				        		cnumber1:this.number1,
+				        		cnumber2:this.number2
+				        	}
+				        },
+                         methods:{
+                     	      inputnum1(event){
+                     	      	this.cnumber1 = event.target.value;
+                     	      	this.$emit('btnum1',this.cnumber1);
+                     	      },
+                     	      inputnum2(event){
+                     	      	this.cnumber2 = event.target.value;
+                     	      	this.$emit('btnum2',this.cnumber2);
+                     	      }
+                         }
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<cpn1></cpn1>
+			<!--<cpn2></cpn2>-->
+		</div>
+		<template id="cpn1">
+		  	  <div>
+				<h2>浮云</h2>
+				<p>笑看今朝</p>
+		     </div>	
+		</template>
+		<script>
+
+            //注册全局组件
+			Vue.component('cpn1',{
+//				template:`
+//				<div>
+//				<h2>浮云</h2>
+//				<p>笑看今朝</p>
+//				</div>`
+                  template:'#cpn1'
+				})
+			const app = new Vue({
+				el:'#app',
+				components:{
+					'cpn2':{//注册局部组件
+				template:`
+				<div>
+				<cpn1></cpn1>
+				<h2>职业</h2>
+				<p>桃李不言</p>
+			    </div>`,
+			    components:{
+			    	'cpn1':{
+			    	     template:`
+				         <div>
+				         <h2>浮云</h2>
+				         <p>笑看今朝</p>
+				         </div>`}
+			          }
+				  }
+				 }
+		     });
+		</script>
+	</body>
+</html>

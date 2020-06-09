@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<span v-if="isShow">
+			<label for="username">用户姓名：</label> <!--for的作用：当鼠标点击用户名的时候，鼠标自动聚焦到输入框  -->
+			<input type="text" name="username" id="username" value="" placeholder="用户姓名" key="1"/>
+		</span>
+		<span v-else="isShow">
+			<label for="username">用户邮箱：</label>
+			<input type="text" name="username" id="email" value="" placeholder="用户邮箱" key="2"/>
+		</span>
+		<br />
+		<button @click="btnClick">点击切换</button>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+				el:'#app',
+			  data:{
+					isShow:true,
+					noShow:false
+				},
+				methods:{
+					btnClick() {
+						this.isShow = !this.isShow;		
+					}
+			}
+			})
+		</script>
+	</body>
+</html>

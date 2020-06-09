@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<span>当前计数：{{counter}}</span>
+		<br />
+		<button @click="add">加</button>
+		<br />
+		<button @click="reduce">减</button>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+				el:'#app',
+			  data:{
+					counter:0
+				},
+				methods:{
+	            add(){
+					this.counter++;
+				},
+				reduce(){
+					this.counter--;
+				}
+			}
+			})
+		</script>
+	</body>
+</html>

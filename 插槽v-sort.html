@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+  <script type="text/javascript" src="vue.js"></script>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <mycpn>
+          <template #header>我是插槽内容的header</template>
+          <!-- <template># = v-slot:</template>-->
+            <template>我是默认内容</template>
+             <template #main>我是插槽内容的main</template>
+              <template #footer>我是插槽内容的footer</template>
+              <template v-slot="info">
+              	 <div>
+              	 	<ul>
+              		<li v-for="(item) in info.data">{{item}}</li><!--作用域插槽-->
+              	</ul>
+              	 </div>
+              </template>
+        </mycpn>
+        <hr />
+        <mycpn>
+        	<template #footer>hhh,you are change</template>
+        </mycpn>
+    </div>
+
+    <template id='mycpn'>
+    <div>
+       <h2>the game begin</h2>
+       <slot name = "header"></slot>
+        <slot name = "main"></slot>
+         <slot></slot>
+          <slot name = "footer"><h2>www</h2></slot><!--具名插槽-->
+          <slot :data ="info"></slot>
+     </div>
+    </template>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            components: {
+                mycpn: {
+                    template: '#mycpn',
+                    data () {
+                        return {
+                            info: {
+                                id: '1001',
+                                msg: 'hello world',
+                                name:'jack',
+                                age:18
+                            }
+                        }
+                    }
+                }
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

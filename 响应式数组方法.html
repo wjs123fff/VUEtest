@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="item in message" :key="item">{{item}}</li>
+			</ul>
+			<button @click="btnClick">操作</button>
+		</div>
+		<script>
+			const app = new Vue({
+				el:'#app',
+				data:{
+					message:['A','B','C','D','E']
+				},
+				methods:{
+					btnClick() {
+//						1.push方法，数组尾部添加
+//                      this.message.push('name');
+//                      2.pop()删除数组最后应该元素
+//                       this.message.pop();
+//                      3.shift():删除数组中第一个元素
+//                        this.message.shift();
+//                      4.unshift():在数组最前面添加元素
+//                         this.message.unshift('nmae');
+//                      5.splice():插入/删除/替换元素
+//                        this.message.splice(1,0,'k','M','L');
+//                        this.message.splice(1,1);
+//                        this.message.splice(1,2,'k','M','L');
+//                      6.sort():数组排序
+//                         this.message.sort();
+//                        7.reverse():反转
+//                           this.message.reverse();
+                       Vue.set(this.message,1,'G');
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

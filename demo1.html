@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="vue.js">
+			
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<span v-if="isShow">hello,world</span>
+		<span v-else="isShow">sdsad</span>
+		<br />
+		<button @click="btnClick">点击</button>
+		</div>
+		<script type="text/javascript">
+			let app = new Vue({
+				el:'#app',
+			  data:{
+					isShow:true,
+					noShow:false
+				},
+				methods:{
+					btnClick() {
+						this.isShow = !this.isShow;
+						
+					}
+			}
+			})
+		</script>
+	</body>
+</html>
